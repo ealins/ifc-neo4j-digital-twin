@@ -1,0 +1,16 @@
+.env
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+data/inbox/*
+data/models/*
+!data/inbox/.gitkeep
+!data/models/.gitkeep
+output/
+.DS_Store
+Thumbs.db

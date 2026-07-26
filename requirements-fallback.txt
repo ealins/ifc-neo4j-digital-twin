@@ -1,0 +1,6 @@
+# Use this only on a platform where an IfcOpenShell wheel is unavailable.
+# The built-in STEP parser remains functional but has reduced coordinate/geometry fidelity.
+fastapi>=0.115,<1
+uvicorn[standard]>=0.30,<1
+neo4j>=5.20,<7
+python-multipart>=0.0.9,<1

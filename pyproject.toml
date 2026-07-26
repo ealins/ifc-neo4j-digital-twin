@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ifc-neo4j-digital-twin"
+version = "1.0.0"
+description = "Generic IFC semantic graph ingestion, Neo4j backend, FastAPI bridge, and web viewer"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Project contributors"}]
+dependencies = [
+  "fastapi>=0.115,<1",
+  "uvicorn[standard]>=0.30,<1",
+  "neo4j>=5.20,<7",
+  "python-multipart>=0.0.9,<1",
+  "ifcopenshell>=0.8.0,<0.9",
+]
+
+[project.scripts]
+ifc-graph = "ifc_graph.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

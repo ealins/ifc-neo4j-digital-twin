@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Generic IFC · Neo4j Digital Twin</title>
+  <link rel="stylesheet" href="/viewer-assets/styles.css" />
+</head>
+<body>
+<header class="topbar">
+  <div><div class="eyebrow">GENERIC URBAN DIGITAL TWIN</div><h1 id="pageTitle">IFC + Neo4j Semantic Viewer</h1></div>
+  <div class="status-wrap"><span id="backendPill" class="pill pending">Checking Neo4j…</span><a class="docs-link" href="/docs" target="_blank">FastAPI docs</a></div>
+</header>
+<main class="app-shell">
+  <aside class="sidebar left-panel">
+    <section class="panel">
+      <h2>Import any IFC</h2>
+      <p class="hint">Supports IFC STEP and single-model IFCZIP. The file is parsed, capability-checked, and loaded into Neo4j automatically.</p>
+      <input id="fileInput" type="file" accept=".ifc,.ifczip" />
+      <button id="uploadBtn" class="full-width">Upload and build brain</button>
+      <div id="uploadProgress" class="hint"></div>
+    </section>
+    <section class="panel compact">
+      <div class="section-head"><h2>Active model</h2><button id="refreshModelsBtn" class="ghost small">Refresh</button></div>
+      <select id="modelSelect"><option value="">No model imported</option></select>
+      <div class="metrics">
+        <div><strong id="metricNodes">—</strong><span>nodes</span></div>
+        <div><strong id="metricEdges">—</strong><span>relations</span></div>
+        <div><strong id="metricStoreys">—</strong><span>storeys</span></div>
+        <div><strong id="metricSchema">—</strong><span>schema</span></div>
+      </div>
+    </section>
+    <section class="panel">
+      <div class="section-head"><h2>Explore</h2><button id="overviewBtn" class="ghost small">Overview</button></div>
+      <label class="field-label" for="searchInput">Search name, GUID, class or STEP ID</label>
+      <div class="search-row"><input id="searchInput" placeholder="room, door, GUID…" /><button id="searchBtn">Search</button></div>
+    </section>
+    <section class="panel floors-panel">
+      <div class="section-head"><h2>Storeys / facility parts</h2><span class="hint">dynamic</span></div>
+      <select id="classFilter">
+        <option value="">All direct elements</option><option value="IFCSPACE">Spaces</option>
+        <option value="IFCDOOR">Doors</option><option value="IFCWINDOW">Windows</option>
+        <option value="IFCWALL">Walls</option><option value="IFCCOLUMN">Columns</option>
+        <option value="IFCSLAB">Slabs</option><option value="IFCPIPESEGMENT">Pipes</option>
+        <option value="IFCDUCTSEGMENT">Ducts</option><option value="IFCSENSOR">Sensors</option>
+      </select>
+      <div id="storeyStack" class="storey-stack"></div>
+    </section>
+  </aside>
+
+  <section class="workspace">
+    <div class="graph-toolbar">
+      <div><h2 id="graphTitle">Upload or select an IFC model</h2><span id="graphMeta" class="hint"></span></div>
+      <div class="toolbar-actions"><button id="fitBtn" class="ghost small">Fit</button><button id="spatialPathBtn" class="ghost small" disabled>Spatial path</button><button id="expandBtn" class="ghost small" disabled>Expand</button></div>
+    </div>
+    <div id="graphStage" class="graph-stage">
+      <svg id="graphSvg" role="img" aria-label="IFC Neo4j graph"></svg>
+      <div class="legend"><span><i class="dot spatial"></i>Spatial</span><span><i class="dot arch"></i>Architectural</span><span><i class="dot struct"></i>Structural</span><span><i class="dot other"></i>MEP / other</span></div>
+      <div id="loading" class="loading hidden">Working…</div>
+    </div>
+    <div class="cypher-panel"><div class="section-head"><h2>Cypher behind this view</h2><button id="copyCypher" class="ghost small">Copy</button></div><pre id="cypherText">—</pre></div>
+  </section>
+
+  <aside class="sidebar right-panel">
+    <section class="panel details-panel">
+      <h2>Selected entity</h2><div id="emptyDetails" class="empty-state">Select a node.</div>
+      <div id="entityDetails" class="hidden"><div class="entity-heading"><span id="entityClass" class="entity-class"></span><h3 id="entityName"></h3></div><dl id="entityProps"></dl><div class="detail-actions"><button id="detailExpandBtn">Open neighborhood</button><button id="detailPathBtn" class="ghost">Show spatial path</button></div></div>
+    </section>
+    <section class="panel"><h2>Capability evidence</h2><ul id="capabilityList" class="capability-list"><li class="warn">Import a model to evaluate capabilities.</li></ul></section>
+    <section class="panel note"><h2>Honest intelligence</h2><p>Spatial, MEP, sensor and structural features are enabled only when the uploaded IFC or external sensor mapping supplies the required evidence.</p></section>
+  </aside>
+</main>
+<script src="/viewer-assets/app.js"></script>
+</body>
+</html>
