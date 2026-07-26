@@ -253,21 +253,7 @@ pytest -q
 
 The repository includes GitHub Actions CI.
 
-## Publish using GitHub Desktop
 
-1. Extract the downloaded repository.
-2. In GitHub Desktop choose **File → Add local repository**.
-3. Select the extracted folder.
-4. Click **Publish repository**.
-5. Do not commit `.env` or private IFC files. They are excluded by `.gitignore`.
-
-## Security and production notes
-
-This is a research/development repository. Before internet deployment, add authentication and authorization to FastAPI, TLS, upload malware scanning, stricter resource quotas, reverse-proxy limits, audit logging, backups, and network isolation. Do not expose ports `7474` or `7687` publicly without security controls.
-
-## Important accuracy boundary
-
-“Generic” means the software adapts to filenames, model sizes, storey names, GUIDs, supported IFC schemas, and the semantic relationships actually present. It does **not** mean every malformed or nonstandard exporter file can yield a complete digital twin. Missing semantics remain missing, and engineering claims are not inferred from visual proximity.
 
 ## License
 
