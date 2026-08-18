@@ -132,16 +132,33 @@
     renderSelected();
   }
 
-  window.addEventListener('ifc-node-selected', (ev) => {
-    state.selectedNode = ev.detail?.node || null;
-    renderSelected();
-  });
-  window.addEventListener('ifc-node-cleared', () => {
-    state.selectedNode = null;
-    showEmpty();
-  });
+  function hookExistingViewerSelection() {
+    if (typeof window.selectNode === 'function' && !window.selectNode.__acousticWrapped) {
+      const original = window.selectNode;
+      const wrapped = function(node) {
+        const result = original.apply(this, arguments);
+        state.selectedNode = node || null;
+        renderSelected();
+        return result;
+      };
+      wrapped.__acousticWrapped = true;
+      window.selectNode = wrapped;
+    }
+    if (typeof window.clearSelection === 'function' && !window.clearSelection.__acousticWrapped) {
+      const original = window.clearSelection;
+      const wrapped = function() {
+        const result = original.apply(this, arguments);
+        state.selectedNode = null;
+        showEmpty();
+        return result;
+      };
+      wrapped.__acousticWrapped = true;
+      window.clearSelection = wrapped;
+    }
+  }
 
   document.addEventListener('DOMContentLoaded', () => {
+    hookExistingViewerSelection();
     const input = $ac('acousticRegistryInput');
     const reset = $ac('resetAcousticRegistryBtn');
     input?.addEventListener('change', async () => {
