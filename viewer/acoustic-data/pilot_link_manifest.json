@@ -1,0 +1,10 @@
+{
+  "ifc_model": "HFT_Bau1_2026.02.18.ifc",
+  "ifc_distribution": "Not committed to GitHub because the research IFC is large; upload it through the application viewer/API.",
+  "wall_global_id": "2qL6OSUnz6ZAzEOn1HxeD2",
+  "wall_step_id_in_pilot": 1439505,
+  "record_uri": "https://example.org/hft-acoustic/record/vabdat-310",
+  "mapping_status": "AMBIGUOUS_REFERENCE_MATCH",
+  "mapping_basis": "Shared metal-stud construction family; the VaBDat reference is a 100 mm board/stud/mineral-fibre assembly while the selected Bau 1 wall is modeled at about 285 mm. This is a reference link for workflow validation, not an in-situ acoustic measurement.",
+  "claim_scope": "External reference acoustic performance record; not an in-situ Bau 1 measurement."
+}
