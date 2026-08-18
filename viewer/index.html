@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Generic IFC · Neo4j Digital Twin</title>
   <link rel="stylesheet" href="/viewer-assets/styles.css" />
+  <link rel="stylesheet" href="/viewer-assets/acoustic-panel.css" />
 </head>
 <body>
 <header class="topbar">
@@ -66,10 +67,21 @@
       <h2>Selected entity</h2><div id="emptyDetails" class="empty-state">Select a node.</div>
       <div id="entityDetails" class="hidden"><div class="entity-heading"><span id="entityClass" class="entity-class"></span><h3 id="entityName"></h3></div><dl id="entityProps"></dl><div class="detail-actions"><button id="detailExpandBtn">Open neighborhood</button><button id="detailPathBtn" class="ghost">Show spatial path</button></div></div>
     </section>
+    <section id="acousticPanel" class="panel acoustic-panel">
+      <div class="section-head"><h2>Linked acoustic data</h2><span class="hint">external registry</span></div>
+      <div class="acoustic-upload">
+        <label class="field-label" for="acousticRegistryInput">Upload acoustic registry JSON</label>
+        <div class="acoustic-upload-row"><input id="acousticRegistryInput" type="file" accept=".json,application/json" /><button id="resetAcousticRegistryBtn" class="ghost small">Bundled</button></div>
+        <div id="acousticRegistryStatus" class="hint">Loading bundled acoustic registry…</div>
+      </div>
+      <div id="acousticEmpty" class="empty-state">Select an IFC entity containing Pset_AcousticLink.</div>
+      <div id="acousticDetails" class="hidden"></div>
+    </section>
     <section class="panel"><h2>Capability evidence</h2><ul id="capabilityList" class="capability-list"><li class="warn">Import a model to evaluate capabilities.</li></ul></section>
     <section class="panel note"><h2>Honest intelligence</h2><p>Spatial, MEP, sensor and structural features are enabled only when the uploaded IFC or external sensor mapping supplies the required evidence.</p></section>
   </aside>
 </main>
 <script src="/viewer-assets/app.js"></script>
+<script src="/viewer-assets/acoustic-panel.js"></script>
 </body>
 </html>
