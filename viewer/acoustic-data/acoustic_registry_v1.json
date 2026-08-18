@@ -1,0 +1,47 @@
+{
+  "schema": "ifc-rdf-acoustic-registry-view-v1",
+  "generated_from": "acoustic_registry_v1.ttl",
+  "records": {
+    "https://example.org/hft-acoustic/record/vabdat-310": {
+      "uri": "https://example.org/hft-acoustic/record/vabdat-310",
+      "identifier": "vabdat-310",
+      "title": "Reference acoustic record for VaBDat component B_bGP12_frM75||iMW60_bGP12",
+      "acoustic_metric": "Rw",
+      "value": 44.1,
+      "unit": "dB",
+      "assembly": {
+        "uri": "https://example.org/hft-acoustic/component/vabdat-346",
+        "name": "B_bGP12_frM75||iMW60_bGP12",
+        "construction_type": "metal frame construction (MFC)",
+        "total_thickness_m": 0.1,
+        "test_area_m2": 13.04,
+        "specimen_length_x_m": 4.0,
+        "specimen_length_y_m": 3.26,
+        "surface_mass_kg_m2": 20.2,
+        "layers": [
+          {"position": 1, "name": "Bauplatte GKB", "category": "boards (b)", "thickness_m": 0.0125, "load_bearing": false},
+          {"position": 2, "name": "Metallständer CW 75 mit 60mm Mineralfaser-Dämmung", "category": "framework (fr)", "thickness_m": 0.075, "load_bearing": true},
+          {"position": 3, "name": "Bauplatte GKB", "category": "boards (b)", "thickness_m": 0.0125, "load_bearing": false}
+        ]
+      },
+      "source": {
+        "organisation": "ift Rosenheim",
+        "reference": "Anhang, Luftschallmessung-Nr. M_25",
+        "type": "Bericht - vert. Flankenübertragung v. HTW",
+        "year": "2022",
+        "method": "Not explicitly specified in the VaBDat source used for this prototype",
+        "version": "prototype-v1",
+        "source_uri": "https://www.vabdat.de/BauteilKennzahl/view/310",
+        "component_uri": "https://www.vabdat.de/Bauteil/view/346"
+      },
+      "provenance": [
+        {"predicate": "prov:wasAttributedTo", "object": "https://example.org/hft-acoustic/agent/ift-rosenheim"},
+        {"predicate": "prov:wasDerivedFrom", "object": "https://www.vabdat.de/BauteilKennzahl/view/310"},
+        {"predicate": "prov:wasDerivedFrom", "object": "https://example.org/hft-acoustic/source/report-vabdat-310"},
+        {"predicate": "prov:wasGeneratedBy", "object": "https://example.org/hft-acoustic/activity/registry-extraction-2026-08-18"}
+      ],
+      "source_note": "VaBDat notes that the origin of the weighted and frequency-dependent sound reduction values is not specified in the report appendix.",
+      "claim_scope": "External reference acoustic performance record; not an in-situ Bau 1 measurement."
+    }
+  }
+}
