@@ -1,0 +1,76 @@
+@prefix ac: <https://example.org/hft-acoustic/vocab/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/hft-acoustic/record/vabdat-310> a prov:Entity,
+        ac:AcousticPerformanceRecord ;
+    dct:hasVersion "prototype-v1" ;
+    dct:identifier "vabdat-310" ;
+    dct:title "Reference acoustic record for VaBDat component B_bGP12_frM75||iMW60_bGP12" ;
+    prov:wasAttributedTo <https://example.org/hft-acoustic/agent/ift-rosenheim> ;
+    prov:wasDerivedFrom <https://example.org/hft-acoustic/source/report-vabdat-310>,
+        <https://www.vabdat.de/BauteilKennzahl/view/310> ;
+    prov:wasGeneratedBy <https://example.org/hft-acoustic/activity/registry-extraction-2026-08-18> ;
+    ac:acousticMetric "Rw" ;
+    ac:acousticUnit "dB" ;
+    ac:dataYear "2022"^^xsd:gYear ;
+    ac:describesComponent <https://example.org/hft-acoustic/component/vabdat-346> ;
+    ac:methodType "Not explicitly specified in the VaBDat source used for this prototype" ;
+    ac:sourceNote "VaBDat notes that the origin of the weighted and frequency-dependent sound reduction values is not specified in the report appendix." ;
+    ac:sourceOrganisation <https://example.org/hft-acoustic/agent/ift-rosenheim> ;
+    ac:sourceReference "Anhang, Luftschallmessung-Nr. M_25" ;
+    ac:sourceType "Bericht - vert. Flankenübertragung v. HTW" ;
+    ac:specimenLengthX_m 4.0 ;
+    ac:specimenLengthY_m 3.26 ;
+    ac:surfaceMass_kg_m2 20.2 ;
+    ac:testArea_m2 13.04 ;
+    ac:weightedSoundReductionIndex 44.1 .
+
+<https://example.org/hft-acoustic/activity/registry-extraction-2026-08-18> a prov:Activity ;
+    dct:description "Transformation of selected VaBDat public record metadata into the thesis prototype RDF registry." ;
+    prov:endedAtTime "2026-08-18T00:00:00+02:00"^^xsd:dateTime ;
+    prov:used <https://www.vabdat.de/Bauteil/view/346>,
+        <https://www.vabdat.de/BauteilKennzahl/view/310> .
+
+<https://example.org/hft-acoustic/component/vabdat-346> a prov:Entity,
+        ac:WallAssembly ;
+    dct:identifier "vabdat-component-346" ;
+    dct:title "B_bGP12_frM75||iMW60_bGP12" ;
+    prov:wasDerivedFrom <https://www.vabdat.de/Bauteil/view/346> ;
+    ac:constructionType "metal frame construction (MFC)" ;
+    ac:hasLayer <https://example.org/hft-acoustic/layer/vabdat-346-1>,
+        <https://example.org/hft-acoustic/layer/vabdat-346-2>,
+        <https://example.org/hft-acoustic/layer/vabdat-346-3> ;
+    ac:intendedUse "Interior wall" ;
+    ac:totalThickness_m 0.100 .
+
+<https://example.org/hft-acoustic/layer/vabdat-346-1> a ac:MaterialLayer ;
+    ac:isLoadBearing false ;
+    ac:layerName "Bauplatte GKB" ;
+    ac:layerPosition 1 ;
+    ac:materialCategory "boards (b)" ;
+    ac:thickness_m 0.0125 .
+
+<https://example.org/hft-acoustic/layer/vabdat-346-2> a ac:MaterialLayer ;
+    ac:isLoadBearing true ;
+    ac:layerName "Metallständer CW 75 mit 60mm Mineralfaser-Dämmung" ;
+    ac:layerPosition 2 ;
+    ac:materialCategory "framework (fr)" ;
+    ac:thickness_m 0.075 .
+
+<https://example.org/hft-acoustic/layer/vabdat-346-3> a ac:MaterialLayer ;
+    ac:isLoadBearing false ;
+    ac:layerName "Bauplatte GKB" ;
+    ac:layerPosition 3 ;
+    ac:materialCategory "boards (b)" ;
+    ac:thickness_m 0.0125 .
+
+<https://example.org/hft-acoustic/source/report-vabdat-310> a prov:Entity ;
+    dct:date "2022"^^xsd:gYear ;
+    dct:identifier "Anhang, Luftschallmessung-Nr. M_25" ;
+    dct:title "VaBDat source report associated with acoustic dataset 310" ;
+    ac:sourceOrganisation <https://example.org/hft-acoustic/agent/ift-rosenheim> .
+
+<https://example.org/hft-acoustic/agent/ift-rosenheim> a prov:Agent ;
+    dct:title "ift Rosenheim" .
