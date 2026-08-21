@@ -1,0 +1,1 @@
+Run the public-corpus direct STEP acoustic scale validation.
